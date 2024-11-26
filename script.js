@@ -8,7 +8,6 @@ function randomNumber(){
   arrayNumeriRandom.push(randomNumbers)
   }
 }
-
 randomNumber();
 
 //Devo inserire nella mia UL gli LI con all'interno i vari numeri casuali.
@@ -19,6 +18,7 @@ for(let i= 0; i<arrayNumeriRandom.length; i++){
   listItems += `<li>${arrayNumeriRandom[i]}</li>`
 }
 lista.innerHTML = listItems
+console.log(arrayNumeriRandom);
 
 
 //Aziono conto alla rovescia
@@ -45,11 +45,24 @@ const numeroGiocatore3 = document.querySelector('.numero-scelto3');
 const numeroGiocatore4 = document.querySelector('.numero-scelto4');
 const numeroGiocatore5 = document.querySelector('.numero-scelto5');
 
+//Do al bottone le proprietà quando viene cliccato
+let message = document.getElementById('message')
 button.addEventListener('click', ()=>{
-  arrayNumeriGiocatore.push(numeroGiocatore1.value)
-  arrayNumeriGiocatore.push(numeroGiocatore2.value)
-  arrayNumeriGiocatore.push(numeroGiocatore3.value)
-  arrayNumeriGiocatore.push(numeroGiocatore4.value)
-  arrayNumeriGiocatore.push(numeroGiocatore5.value)
+  arrayNumeriGiocatore.push(parseInt(numeroGiocatore1.value))
+  arrayNumeriGiocatore.push(parseInt(numeroGiocatore2.value))
+  arrayNumeriGiocatore.push(parseInt(numeroGiocatore3.value))
+  arrayNumeriGiocatore.push(parseInt(numeroGiocatore4.value))
+  arrayNumeriGiocatore.push(parseInt(numeroGiocatore5.value))
   console.log(arrayNumeriGiocatore)
+  //Creo contatore per confronto dei numeri negli array
+  let counter=0;
+  for(i = 0; i < arrayNumeriRandom.length; i++){
+    if(arrayNumeriRandom[i] === arrayNumeriGiocatore[i]){
+      counter++
+    }
+  }
+  console.log(counter)
+  risposte.classList.add('d-none')
+  message.innerHTML =`Hai indovinato ${counter} numeri!`
 })
+  
