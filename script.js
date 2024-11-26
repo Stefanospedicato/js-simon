@@ -18,15 +18,17 @@ for(let i= 0; i<arrayNumeriRandom.length; i++){
   listItems += `<li>${arrayNumeriRandom[i]}</li>`
 }
 lista.innerHTML = listItems
-console.log(arrayNumeriRandom);
 
 
 //Aziono conto alla rovescia
 const countdown = document.getElementById('countdown');
-let seconds = 3;
-countdown.innerHTML=seconds--
 const risposte = document.getElementById('risposte')
 const button = document.getElementById('bottone')
+//Creo numero di partenza
+let seconds = 3;
+//Si decrementa fin da subito
+countdown.innerHTML=seconds--
+//Creo l'intervallo di tempo e blocco il ciclo al raggiungimento dello 0
 const intervalId = setInterval(()=>{ countdown.innerHTML = seconds;
   if(seconds === 0){
     clearInterval(intervalId)
@@ -45,15 +47,22 @@ const numeroGiocatore3 = document.querySelector('.numero-scelto3');
 const numeroGiocatore4 = document.querySelector('.numero-scelto4');
 const numeroGiocatore5 = document.querySelector('.numero-scelto5');
 
+
 //Do al bottone le proprietà quando viene cliccato
 let message = document.getElementById('message')
 button.addEventListener('click', ()=>{
+  //Aggiungo tutti i numeri scelti dal giocatore nell'array vuoto
   arrayNumeriGiocatore.push(parseInt(numeroGiocatore1.value))
   arrayNumeriGiocatore.push(parseInt(numeroGiocatore2.value))
   arrayNumeriGiocatore.push(parseInt(numeroGiocatore3.value))
   arrayNumeriGiocatore.push(parseInt(numeroGiocatore4.value))
   arrayNumeriGiocatore.push(parseInt(numeroGiocatore5.value))
-  console.log(arrayNumeriGiocatore)
+
+  //Alert per quando si supera il 50
+  if(parseInt(numeroGiocatore1.value) || parseInt(numeroGiocatore2.value) || parseInt(numeroGiocatore3.value)|| parseInt(numeroGiocatore4.value) || parseInt(numeroGiocatore5.value)>50){
+    alert('DEVI INSERIRE SOLO I NUMERI DA 1 A 50')
+  } 
+
   //Creo contatore per confronto dei numeri negli array
   let counter=0;
   for(i = 0; i < arrayNumeriRandom.length; i++){
@@ -61,8 +70,13 @@ button.addEventListener('click', ()=>{
       counter++
     }
   }
-  console.log(counter)
   risposte.classList.add('d-none')
-  message.innerHTML =`Hai indovinato ${counter} numeri!`
+    if(counter===0){
+      message.innerHTML = 'Non hai indovinato nessun numero!!!'
+      message.classList.remove('text-success')
+      message.classList.add('text-danger')
+    } else{
+       message.innerHTML =`Hai indovinato ${counter} numeri!`
+    }
 })
   
