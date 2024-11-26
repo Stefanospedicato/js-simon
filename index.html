@@ -10,21 +10,21 @@
 <body>
 
   <div class="vh-100 d-flex justify-content-center align-items-center flex-column">
-    <div id="countdown" class="fs-1 fw-bolder">10</div>
+    <div id="countdown" class="fs-1 fw-bolder"></div>
     <p>Memorizza i numeri entro 10 secondi</p>
     <ul id="numeri-generati" class="d-flex gap-5 list-unstyled"></ul>
 
-    <form id="risposte">
+    <form id="risposte" class="d-none">
       <div id="inputs">
-        <input class="numero-scelto" type="number" min="1" max="50" required>
-        <input class="numero-scelto" type="number" min="1" max="50" required>
-        <input class="numero-scelto" type="number" min="1" max="50" required>
-        <input class="numero-scelto" type="number" min="1" max="50" required>
-        <input class="numero-scelto" type="number" min="1" max="50" required>
+        <input class="numero-scelto1" type="number" min="1" max="50"  required>
+        <input class="numero-scelto2" type="number" min="1" max="50"  required>
+        <input class="numero-scelto3" type="number" min="1" max="50"  required>
+        <input class="numero-scelto4" type="number" min="1" max="50"  required>
+        <input class="numero-scelto5" type="number" min="1" max="50"  required>
       </div>
-      <button id="bottone" class="btn btn-primary mt-5">Conferma</button>
-      <p id="message" class="text-center text-success fw-bold"></p>
     </form>
+    <button id="bottone" class="btn btn-info mt-5 d-block" disabled>Conferma</button>
+    <p id="message" class="text-center text-success fw-bold"></p>
   </div>
   
 
