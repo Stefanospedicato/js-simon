@@ -72,7 +72,11 @@ button.addEventListener('click', ()=>{
       counter++
     }
   }
+  didascalia.classList.add('d-none')
+  countdown.classList.add('d-none')
   risposte.classList.add('d-none')
+  button.classList.add('d-none')
+  
     if(counter===0){
       message.innerHTML = 'Non hai indovinato nessun numero!!!'
       message.classList.remove('text-success')
