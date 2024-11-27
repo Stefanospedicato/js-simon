@@ -23,11 +23,12 @@ lista.innerHTML = listItems
 //Aziono conto alla rovescia
 const countdown = document.getElementById('countdown');
 const risposte = document.getElementById('risposte')
-const button = document.getElementById('bottone')
+const button = document.getElementById('bottone');
+const didascalia = document.getElementById('didascalia');
 //Creo numero di partenza
-let seconds = 3;
+let seconds = 10;
 //Si decrementa fin da subito
-countdown.innerHTML=seconds--
+countdown.innerHTML=seconds
 //Creo l'intervallo di tempo e blocco il ciclo al raggiungimento dello 0
 const intervalId = setInterval(()=>{ countdown.innerHTML = seconds;
   if(seconds === 0){
@@ -35,6 +36,7 @@ const intervalId = setInterval(()=>{ countdown.innerHTML = seconds;
     lista.classList.add('d-none');
     risposte.classList.remove('d-none');
     button.disabled = false;
+    didascalia.innerHTML='Scrivi i numeri che hai memorizzato!'
   }
 seconds--
 }, 1000)
@@ -59,7 +61,7 @@ button.addEventListener('click', ()=>{
   arrayNumeriGiocatore.push(parseInt(numeroGiocatore5.value))
 
   //Alert per quando si supera il 50
-  if(parseInt(numeroGiocatore1.value) || parseInt(numeroGiocatore2.value) || parseInt(numeroGiocatore3.value)|| parseInt(numeroGiocatore4.value) || parseInt(numeroGiocatore5.value)>50){
+  if((parseInt(numeroGiocatore1.value) || parseInt(numeroGiocatore2.value) || parseInt(numeroGiocatore3.value)|| parseInt(numeroGiocatore4.value) || parseInt(numeroGiocatore5.value))>50){
     alert('DEVI INSERIRE SOLO I NUMERI DA 1 A 50')
   } 
 
